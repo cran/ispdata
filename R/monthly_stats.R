@@ -1,0 +1,62 @@
+#' Access the public security statistics of the State of Rio de Janeiro by month
+#'
+#' Returns monthly data on police occurrences in the State of Rio de Janeiro in the form of a dataframe.
+#'
+#' To see the dictionary of variables, use the function monthly_stats_dictionary().
+#'
+#' @importFrom utils download.file unzip
+#'
+#' @param by selects the spatial division of the data. It might be: "police_station_area", "municipality" or "state". character.
+#'
+#' @param value allows you to choose whether the values will be in absolute numbers ("standard") or per 100,000 inhabitants ("per_100k"). character.
+#'
+#' @return a dataframe
+#'
+#' @examples
+#' \donttest{monthly_stats(by = "police_station_area")}
+#'
+#' @export
+monthly_stats <- function(by, value = 'standard') {
+
+  hom_doloso <- cmba <- NULL
+
+  if(by == 'police_station_area' & value == 'standard') {
+    link <- 'https://www.ispdados.rj.gov.br/Arquivos/BaseDPEvolucaoMensalCisp.csv'
+  }
+
+  if(by == 'police_station_area' & value == 'per_100k') {
+    message('The data in this format is not available.\n\nPlease, change the value argument to "standard".\n')
+    stop()
+  }
+
+  if(by == 'municipality' & value == 'standard') {
+    link <- 'https://www.ispdados.rj.gov.br/Arquivos/BaseMunicipioMensal.csv'
+  }
+
+  if(by == 'municipality' & value == 'per_100k') {
+    link <- 'https://www.ispdados.rj.gov.br/Arquivos/BaseMunicipioMensalTaxa.csv'
+  }
+
+  if(by == 'state' & value == 'standard') {
+    link <- 'https://www.ispdados.rj.gov.br/Arquivos/DOMensalEstadoDesde1991.csv'
+  }
+
+  if(by == 'state' & value == 'per_100k') {
+    link <- 'https://www.ispdados.rj.gov.br/Arquivos/BaseEstadoTaxaMes.csv'
+  }
+
+  df <-  readr::read_csv2(link, locale = readr::locale(encoding = "latin1"), show_col_types = FALSE) |>
+    janitor::clean_names()
+
+  if(by == 'municipality' & value == 'per_100k') {
+    suppressWarnings({
+    df <- df |>
+      dplyr::mutate(dplyr::across(c(hom_doloso:cmba),
+                                  ~ readr::parse_number(., locale = readr::locale(decimal_mark = ","))))
+    })
+  }
+
+  message('Query completed.')
+  return(df)
+
+}
