@@ -22,7 +22,7 @@ A spatial data frame
 \url{https://www.ispdados.rj.gov.br/Arquivos/UPPshp.rar}
 }
 \usage{
-data(spatial_upp)
+spatial_upp
 }
 \description{
 This is the spatial data from the territorial limits of the Pacifying Police Units (UPPs) in the year of 2017.

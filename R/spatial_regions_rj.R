@@ -2,7 +2,6 @@
 #'
 #' This is the spatial data from the State of Rio de Janeiro.
 #'
-#' @usage data(spatial_regions_rj)
 #'
 #' @format ## `spatial_regions_rj`
 #' A spatial data frame

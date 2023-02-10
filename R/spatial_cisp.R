@@ -2,7 +2,6 @@
 #'
 #' This is the spatial data from the Integrated Public Safety Circumscriptions (CISP) of the State of Rio de Janeiro.
 #'
-#' @usage data(spatial_cisp)
 #'
 #' @format ## `spatial_cisp`
 #' A spatial data frame

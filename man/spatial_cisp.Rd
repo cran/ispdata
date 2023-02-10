@@ -19,7 +19,7 @@ A spatial data frame
 \url{https://www.ispdados.rj.gov.br/Arquivos/CISPshp.rar}
 }
 \usage{
-data(spatial_cisp)
+spatial_cisp
 }
 \description{
 This is the spatial data from the Integrated Public Safety Circumscriptions (CISP) of the State of Rio de Janeiro.

@@ -2,7 +2,6 @@
 #'
 #' This is the spatial data from the territorial limits of the Pacifying Police Units (UPPs) in the year of 2017.
 #'
-#' @usage data(spatial_upp)
 #'
 #' @format ## `spatial_upp`
 #' A spatial data frame

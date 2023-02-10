@@ -2,7 +2,6 @@
 #'
 #' This is the spatial data from the Integrated Public Safety Area (AISP) of the State of Rio de Janeiro.
 #'
-#' @usage data(spatial_aisp)
 #'
 #' @format ## `spatial_aisp`
 #' A spatial data frame

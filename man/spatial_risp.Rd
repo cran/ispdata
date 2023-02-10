@@ -18,7 +18,7 @@ A spatial data frame
 \url{https://www.ispdados.rj.gov.br/Arquivos/RISPshp.rar}
 }
 \usage{
-data(spatial_risp)
+spatial_risp
 }
 \description{
 This is the spatial data from the Integrated Public Safety Regions (RISP) of the State of Rio de Janeiro.

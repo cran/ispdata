@@ -19,7 +19,7 @@ A spatial data frame
 \url{https://www.ispdados.rj.gov.br/Arquivos/RegioesSHP.rar}
 }
 \usage{
-data(spatial_regions_rj)
+spatial_regions_rj
 }
 \description{
 This is the spatial data from the State of Rio de Janeiro.

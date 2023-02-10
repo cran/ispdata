@@ -19,7 +19,7 @@ A spatial data frame
 \url{https://www.ispdados.rj.gov.br/Arquivos/AISPshp.rar}
 }
 \usage{
-data(spatial_aisp)
+spatial_aisp
 }
 \description{
 This is the spatial data from the Integrated Public Safety Area (AISP) of the State of Rio de Janeiro.
