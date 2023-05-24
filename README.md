@@ -1,15 +1,13 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# ispdata: o pacote para acessar as estatísticas de Segurança Pública do Estado do Rio de Janeiro
+# ispdata <img src="man/figures/logo.png" align="right" height="139" />
 
 <!-- badges: start -->
 
 [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/ispdata)](https://cran.r-project.org/package=ispdata)
 [![CRAN_Download_Badge](http://cranlogs.r-pkg.org/badges/ispdata)](https://CRAN.R-project.org/package=ispdata)
 [![CRAN_Download_Badge](http://cranlogs.r-pkg.org/badges/grand-total/ispdata)](https://CRAN.R-project.org/package=ispdata)
-[![“Buy Me A
-Coffee”](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/igorlaltuf)
 <!-- badges: end -->
 
 ## Sobre o pacote
@@ -41,13 +39,13 @@ Acessar estatísticas de segurança pública por área de delegacia de
 polícia:
 
 ``` r
-df <- monthly_stats(by = 'police_station_area') 
+df <- monthly_stats(by = 'cisp') 
 ```
 
 Carregar o dicionário de dados da tabela acima:
 
 ``` r
-data_dictionary <- monthly_stats_dictionary(by = 'police_station_area')
+data_dictionary <- monthly_stats_dictionary(by = 'cisp')
 ```
 
 Acessar dados sobre feminicídio:
@@ -74,8 +72,8 @@ Dados espaciais vetoriais dos limites das UPPs:
 shape <- spatial_upp
 ```
 
-Exemplo: Quantidade homicídios por intervenção policial a cada 100 mil
-habitantes em 2020 por área de delegacia no município do Rio de Janeiro:
+Exemplo: Taxa de homicídios por intervenção policial em 2020 na cidade
+do Rio de Janeiro. Dados por Área Integrada de Segurança Pública (AISP).
 
 ``` r
 
@@ -100,7 +98,12 @@ df <- monthly_stats(by = 'cisp') |>
 ggplot() + 
   geom_sf(data = df, mapping = aes(fill = v_100k_hab), color = NA) +
   theme_classic() +
-  scale_fill_viridis_c()
+  scale_fill_viridis_c(name = "Quantidade para\ncada 100 mil hab") + 
+  labs(title = "",
+       subtitle = "") +
+  coord_sf() +
+  ggspatial::annotation_scale() +
+  ggspatial::annotation_north_arrow(location = "br")
 ```
 
 <img src="man/figures/README-unnamed-chunk-2-1.png" width="100%" />
